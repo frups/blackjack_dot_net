@@ -60,6 +60,7 @@
             this.btnTwist.TabIndex = 2;
             this.btnTwist.Text = "btnTwist";
             this.btnTwist.UseVisualStyleBackColor = true;
+            this.btnTwist.Click += new System.EventHandler(this.btnTwist_Click);
             // 
             // btnStick
             // 
