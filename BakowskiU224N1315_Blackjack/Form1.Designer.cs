@@ -28,13 +28,70 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.fraPlayerHand = new System.Windows.Forms.GroupBox();
+            this.fraDealerHand = new System.Windows.Forms.GroupBox();
+            this.btnTwist = new System.Windows.Forms.Button();
+            this.btnStick = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // fraPlayerHand
+            // 
+            this.fraPlayerHand.Location = new System.Drawing.Point(12, 96);
+            this.fraPlayerHand.Name = "fraPlayerHand";
+            this.fraPlayerHand.Size = new System.Drawing.Size(450, 400);
+            this.fraPlayerHand.TabIndex = 0;
+            this.fraPlayerHand.TabStop = false;
+            this.fraPlayerHand.Text = "fraPlayerHand";
+            // 
+            // fraDealerHand
+            // 
+            this.fraDealerHand.Location = new System.Drawing.Point(469, 96);
+            this.fraDealerHand.Name = "fraDealerHand";
+            this.fraDealerHand.Size = new System.Drawing.Size(450, 400);
+            this.fraDealerHand.TabIndex = 1;
+            this.fraDealerHand.TabStop = false;
+            this.fraDealerHand.Text = "fraDealerHand";
+            // 
+            // btnTwist
+            // 
+            this.btnTwist.Location = new System.Drawing.Point(12, 38);
+            this.btnTwist.Name = "btnTwist";
+            this.btnTwist.Size = new System.Drawing.Size(75, 23);
+            this.btnTwist.TabIndex = 2;
+            this.btnTwist.Text = "btnTwist";
+            this.btnTwist.UseVisualStyleBackColor = true;
+            // 
+            // btnStick
+            // 
+            this.btnStick.Location = new System.Drawing.Point(93, 38);
+            this.btnStick.Name = "btnStick";
+            this.btnStick.Size = new System.Drawing.Size(75, 23);
+            this.btnStick.TabIndex = 3;
+            this.btnStick.Text = "btnStick";
+            this.btnStick.UseVisualStyleBackColor = true;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(931, 507);
+            this.Controls.Add(this.btnStick);
+            this.Controls.Add(this.btnTwist);
+            this.Controls.Add(this.fraDealerHand);
+            this.Controls.Add(this.fraPlayerHand);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.GroupBox fraPlayerHand;
+        private System.Windows.Forms.GroupBox fraDealerHand;
+        private System.Windows.Forms.Button btnTwist;
+        private System.Windows.Forms.Button btnStick;
     }
 }
 

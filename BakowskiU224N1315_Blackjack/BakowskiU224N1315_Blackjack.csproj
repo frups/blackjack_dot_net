@@ -54,6 +54,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -75,6 +79,165 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2c.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2d.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2h.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2s.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3c.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3d.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3h.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3s.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4c.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4d.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4h.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4s.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5c.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5d.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5h.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5s.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6c.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6d.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6h.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6s.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7c.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7d.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7h.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7s.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8c.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8d.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8h.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8s.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9c.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9d.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9h.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9s.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ac.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ad.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ah.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\as.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\j.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jc.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jd.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jh.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\js.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kc.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kd.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kh.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ks.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\qc.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\qd.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\qh.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\qs.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tc.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\td.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\th.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ts.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
