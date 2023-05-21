@@ -71,18 +71,24 @@ namespace BakowskiU224N1315_Blackjack
         }
         private void twistCardForPlayer()
         {
-            playerDeck[playerCardsCounter] = drawCardId();//saving card id to deck
-            int index = fraPlayerHand.Controls.GetChildIndex(fraPlayerHand.Controls.Find(("picPlayerCard") + playerCardsCounter.ToString(), true).First());
-            fraPlayerHand.Controls[index].BackgroundImage = getResourceBasedOnCardId(playerDeck[playerCardsCounter]);
-            playerCardsCounter++;
+            if (playerCardsCounter < CARDS_IN_HAND_MAX)
+            {
+                playerDeck[playerCardsCounter] = drawCardId();//saving card id to deck
+                int index = fraPlayerHand.Controls.GetChildIndex(fraPlayerHand.Controls.Find(("picPlayerCard") + playerCardsCounter.ToString(), true).First());
+                fraPlayerHand.Controls[index].BackgroundImage = getResourceBasedOnCardId(playerDeck[playerCardsCounter]);
+                playerCardsCounter++;
+            }
         }
 
         private void twistCardForDealer()
         {
-            dealerDeck[dealerCardsCounter] = drawCardId();//saving card id to deck
-            int index = fraDealerHand.Controls.GetChildIndex(fraDealerHand.Controls.Find(("picDealerCard") + dealerCardsCounter.ToString(), true).First());
-            fraDealerHand.Controls[index].BackgroundImage = getResourceBasedOnCardId(dealerDeck[dealerCardsCounter]);
-            dealerCardsCounter++;
+            if (dealerCardsCounter < CARDS_IN_HAND_MAX)
+            {
+                dealerDeck[dealerCardsCounter] = drawCardId();//saving card id to deck
+                int index = fraDealerHand.Controls.GetChildIndex(fraDealerHand.Controls.Find(("picDealerCard") + dealerCardsCounter.ToString(), true).First());
+                fraDealerHand.Controls[index].BackgroundImage = getResourceBasedOnCardId(dealerDeck[dealerCardsCounter]);
+                dealerCardsCounter++;
+            }
         }
 
 
@@ -99,9 +105,5 @@ namespace BakowskiU224N1315_Blackjack
             return null;
         }
 
-        private void btnTwist_Click(object sender, EventArgs e)
-        {
-            twistCardForPlayer();
-        }
     }
 }
