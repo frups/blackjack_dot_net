@@ -60,16 +60,16 @@ namespace BakowskiU224N1315_Blackjack
 
         private void initializeGame()//method which draws two cards for player and one card for dealer
         {
-            drawCardForPlayer();
-            drawCardForPlayer();
-            drawCardForDealer();
+            twistCardForPlayer();
+            twistCardForPlayer();
+            twistCardForDealer();
         }
 
         private int drawCardId()
         {
             return rnd.Next(0, 52);
         }
-        private void drawCardForPlayer()
+        private void twistCardForPlayer()
         {
             playerDeck[playerCardsCounter] = drawCardId();//saving card id to deck
             int index = fraPlayerHand.Controls.GetChildIndex(fraPlayerHand.Controls.Find(("picPlayerCard") + playerCardsCounter.ToString(), true).First());
@@ -77,7 +77,7 @@ namespace BakowskiU224N1315_Blackjack
             playerCardsCounter++;
         }
 
-        private void drawCardForDealer()
+        private void twistCardForDealer()
         {
             dealerDeck[dealerCardsCounter] = drawCardId();//saving card id to deck
             int index = fraDealerHand.Controls.GetChildIndex(fraDealerHand.Controls.Find(("picDealerCard") + dealerCardsCounter.ToString(), true).First());
@@ -99,6 +99,9 @@ namespace BakowskiU224N1315_Blackjack
             return null;
         }
 
-       
+        private void btnTwist_Click(object sender, EventArgs e)
+        {
+            twistCardForPlayer();
+        }
     }
 }
