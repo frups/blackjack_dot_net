@@ -33,12 +33,13 @@ namespace BakowskiU224N1315_Blackjack
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            initializeGui();
-            initializeGame();
+            resetGame();
         }
 
         private void initializeGui()//method for preparing layout of player and dealer hands in gui (21 can be drawed maximum)
         {
+            this.fraPlayerHand.Controls.Clear();
+            this.fraDealerHand.Controls.Clear();
             for (int index = 0; index <= CARDS_IN_HAND_MAX; index++)
             {
                 var playerCard = new PictureBox();
@@ -125,6 +126,7 @@ namespace BakowskiU224N1315_Blackjack
                 newResult += getCardValueById(card);
             }
             dealerResult = newResult;
+            lblDealerScore.Text = dealerResult.ToString();
         }
 
         private int getCardValueById(int cardId)
@@ -142,11 +144,66 @@ namespace BakowskiU224N1315_Blackjack
             if (cardId >= 36) return 10;
             else return 0;//Value not found
         }
+
+        private void dealerTurn()
+        {
+            while (dealerResult<=17)
+            {
+                System.Threading.Thread.Sleep(100);
+                twistCardForDealer();
+                if(dealerResult>21)
+                {
+                    MessageBox.Show("Dealer bust. Player won the hand");
+                    resetGame();
+                }
+                else
+                {
+                    if(dealerResult>playerResult)
+                    {
+                        MessageBox.Show("Player loose");
+                        resetGame();
+                    }
+                    else if(playerResult>dealerResult)
+                    {
+                        MessageBox.Show("Player won");
+                        resetGame();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Draw");
+                        resetGame();
+                    }
+                }
+            }
+        }
         private void btnTwist_Click(object sender, EventArgs e)
         {
+            btnTwist.Enabled = false;
             twistCardForPlayer();
-            if (playerResult > 21) MessageBox.Show("player loosed");
+            if (playerResult > 21)
+            {
+                MessageBox.Show("Player bust. Hand is over");
+                resetGame();
+            }
         }
 
+        private void resetGame()
+        {
+            btnTwist.Enabled = true;
+            playerDeck = new int[21];//arrays for storing values with cards id of drawed cards
+            dealerDeck = new int[21];//arrays for storing values with cards id of drawed cards
+            playerCardsCounter = 0;
+            dealerCardsCounter = 0;
+            playerResult = 0;
+            dealerResult = 0;
+            initializeGui();
+            initializeGame();
+        }
+
+        private void btnStick_Click(object sender, EventArgs e)
+        {
+            dealerTurn();
+
+        }
     }
 }

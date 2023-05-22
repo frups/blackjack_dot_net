@@ -33,6 +33,7 @@
             this.btnTwist = new System.Windows.Forms.Button();
             this.btnStick = new System.Windows.Forms.Button();
             this.lblPlayerScore = new System.Windows.Forms.Label();
+            this.lblDealerScore = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // fraPlayerHand
@@ -71,6 +72,7 @@
             this.btnStick.TabIndex = 3;
             this.btnStick.Text = "btnStick";
             this.btnStick.UseVisualStyleBackColor = true;
+            this.btnStick.Click += new System.EventHandler(this.btnStick_Click);
             // 
             // lblPlayerScore
             // 
@@ -81,11 +83,21 @@
             this.lblPlayerScore.TabIndex = 4;
             this.lblPlayerScore.Text = "lblPlayerScore";
             // 
+            // lblDealerScore
+            // 
+            this.lblDealerScore.AutoSize = true;
+            this.lblDealerScore.Location = new System.Drawing.Point(477, 43);
+            this.lblDealerScore.Name = "lblDealerScore";
+            this.lblDealerScore.Size = new System.Drawing.Size(76, 13);
+            this.lblDealerScore.TabIndex = 5;
+            this.lblDealerScore.Text = "lblDealerScore";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(931, 507);
+            this.Controls.Add(this.lblDealerScore);
             this.Controls.Add(this.lblPlayerScore);
             this.Controls.Add(this.btnStick);
             this.Controls.Add(this.btnTwist);
@@ -106,6 +118,7 @@
         private System.Windows.Forms.Button btnTwist;
         private System.Windows.Forms.Button btnStick;
         private System.Windows.Forms.Label lblPlayerScore;
+        private System.Windows.Forms.Label lblDealerScore;
     }
 }
 
