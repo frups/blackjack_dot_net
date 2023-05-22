@@ -26,6 +26,7 @@ namespace BakowskiU224N1315_Blackjack
         int dealerCardsCounter = 0;
         int playerResult = 0;
         int dealerResult = 0;
+        int playerAccount = 50;
         public Form1()
         {
             InitializeComponent();
@@ -38,6 +39,7 @@ namespace BakowskiU224N1315_Blackjack
 
         private void initializeGui()//method for preparing layout of player and dealer hands in gui (21 can be drawed maximum)
         {
+            lblPlayerAccount.Text = playerAccount.ToString();
             this.fraPlayerHand.Controls.Clear();
             this.fraDealerHand.Controls.Clear();
             for (int index = 0; index <= CARDS_IN_HAND_MAX; index++)
