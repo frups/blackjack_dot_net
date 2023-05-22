@@ -12,6 +12,7 @@ using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BakowskiU224N1315_Blackjack
 {
@@ -27,6 +28,7 @@ namespace BakowskiU224N1315_Blackjack
         int playerResult = 0;
         int dealerResult = 0;
         int playerAccount = 50;
+        int playerBet = 2;
         public Form1()
         {
             InitializeComponent();
@@ -34,7 +36,14 @@ namespace BakowskiU224N1315_Blackjack
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            resetGame();
+            if(playerAccount>0)
+            {
+                resetGame();
+            }
+            else
+            {
+                MessageBox.Show("Youre bankrupt. Game over.");
+            }
         }
 
         private void initializeGui()//method for preparing layout of player and dealer hands in gui (21 can be drawed maximum)
@@ -170,6 +179,7 @@ namespace BakowskiU224N1315_Blackjack
             else if (playerResult > dealerResult)
             {
                 MessageBox.Show("Player won");
+                playerAccount += playerBet * 2;
                 resetGame();
             }
             else
@@ -190,7 +200,6 @@ namespace BakowskiU224N1315_Blackjack
 
         private void resetGame()
         {
-            btnTwist.Enabled = true;
             playerDeck = new int[CARDS_IN_HAND_MAX];//arrays for storing values with cards id of drawed cards
             dealerDeck = new int[CARDS_IN_HAND_MAX];//arrays for storing values with cards id of drawed cards
             for(int i = 0;i< CARDS_IN_HAND_MAX;i++)
@@ -202,8 +211,13 @@ namespace BakowskiU224N1315_Blackjack
             dealerCardsCounter = 0;
             playerResult = 0;
             dealerResult = 0;
+            playerBet = 2;
             initializeGui();
             initializeGame();
+
+            btnStart.Enabled = true;
+            txtBet.Enabled = true;
+            btnStick.Enabled = false;
         }
 
         private void btnStick_Click(object sender, EventArgs e)
@@ -211,6 +225,37 @@ namespace BakowskiU224N1315_Blackjack
             btnTwist.Enabled = false;
             dealerTurn();
 
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            int bet;
+            try
+            {
+                bet = int.Parse(txtBet.Text);
+            }
+            catch (FormatException)
+            {
+                bet = 0;
+            }
+            if(bet>=2 && bet<100 &&bet<=playerAccount)
+            {
+                playerBet = bet;
+                startGame();
+            }
+            else
+            {
+                MessageBox.Show("Wrong value");
+            }
+        }
+        private void startGame()
+        {
+            playerAccount -= playerBet;
+            this.lblPlayerAccount.Text = playerAccount.ToString();
+            btnStart.Enabled = false;
+            txtBet.Enabled = false;
+            btnStick.Enabled = true;
+            btnTwist.Enabled = true;
         }
     }
 }
