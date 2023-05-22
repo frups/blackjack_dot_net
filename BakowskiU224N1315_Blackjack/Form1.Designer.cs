@@ -39,6 +39,8 @@
             this.txtBet = new System.Windows.Forms.TextBox();
             this.btnStart = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblBet = new System.Windows.Forms.Label();
+            this.lblAccount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // fraPlayerHand
@@ -48,7 +50,7 @@
             this.fraPlayerHand.Size = new System.Drawing.Size(450, 400);
             this.fraPlayerHand.TabIndex = 0;
             this.fraPlayerHand.TabStop = false;
-            this.fraPlayerHand.Text = "fraPlayerHand";
+            this.fraPlayerHand.Text = "Player Hand";
             // 
             // fraDealerHand
             // 
@@ -57,27 +59,27 @@
             this.fraDealerHand.Size = new System.Drawing.Size(450, 400);
             this.fraDealerHand.TabIndex = 1;
             this.fraDealerHand.TabStop = false;
-            this.fraDealerHand.Text = "fraDealerHand";
+            this.fraDealerHand.Text = "Dealer Hand";
             // 
             // btnTwist
             // 
             this.btnTwist.Enabled = false;
-            this.btnTwist.Location = new System.Drawing.Point(324, 24);
+            this.btnTwist.Location = new System.Drawing.Point(781, 24);
             this.btnTwist.Name = "btnTwist";
             this.btnTwist.Size = new System.Drawing.Size(66, 66);
             this.btnTwist.TabIndex = 2;
-            this.btnTwist.Text = "btnTwist";
+            this.btnTwist.Text = "Twist";
             this.btnTwist.UseVisualStyleBackColor = true;
             this.btnTwist.Click += new System.EventHandler(this.btnTwist_Click);
             // 
             // btnStick
             // 
             this.btnStick.Enabled = false;
-            this.btnStick.Location = new System.Drawing.Point(396, 24);
+            this.btnStick.Location = new System.Drawing.Point(853, 24);
             this.btnStick.Name = "btnStick";
             this.btnStick.Size = new System.Drawing.Size(66, 66);
             this.btnStick.TabIndex = 3;
-            this.btnStick.Text = "btnStick";
+            this.btnStick.Text = "Stick";
             this.btnStick.UseVisualStyleBackColor = true;
             this.btnStick.Click += new System.EventHandler(this.btnStick_Click);
             // 
@@ -89,6 +91,7 @@
             this.lblPlayerScore.Size = new System.Drawing.Size(74, 13);
             this.lblPlayerScore.TabIndex = 4;
             this.lblPlayerScore.Text = "lblPlayerScore";
+            this.lblPlayerScore.Visible = false;
             // 
             // lblDealerScore
             // 
@@ -98,12 +101,13 @@
             this.lblDealerScore.Size = new System.Drawing.Size(76, 13);
             this.lblDealerScore.TabIndex = 5;
             this.lblDealerScore.Text = "lblDealerScore";
+            this.lblDealerScore.Visible = false;
             // 
             // lblPlayerAccount
             // 
             this.lblPlayerAccount.AutoSize = true;
             this.lblPlayerAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lblPlayerAccount.Location = new System.Drawing.Point(12, 43);
+            this.lblPlayerAccount.Location = new System.Drawing.Point(105, 19);
             this.lblPlayerAccount.Name = "lblPlayerAccount";
             this.lblPlayerAccount.Size = new System.Drawing.Size(167, 24);
             this.lblPlayerAccount.TabIndex = 4;
@@ -113,7 +117,7 @@
             // 
             this.lblEur.AutoSize = true;
             this.lblEur.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEur.Location = new System.Drawing.Point(69, 43);
+            this.lblEur.Location = new System.Drawing.Point(138, 19);
             this.lblEur.Name = "lblEur";
             this.lblEur.Size = new System.Drawing.Size(21, 24);
             this.lblEur.TabIndex = 5;
@@ -122,8 +126,8 @@
             // txtBet
             // 
             this.txtBet.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.txtBet.ForeColor = System.Drawing.Color.Red;
-            this.txtBet.Location = new System.Drawing.Point(220, 16);
+            this.txtBet.ForeColor = System.Drawing.Color.Black;
+            this.txtBet.Location = new System.Drawing.Point(330, 16);
             this.txtBet.Name = "txtBet";
             this.txtBet.Size = new System.Drawing.Size(30, 29);
             this.txtBet.TabIndex = 6;
@@ -131,11 +135,11 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(220, 67);
+            this.btnStart.Location = new System.Drawing.Point(330, 67);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(52, 23);
             this.btnStart.TabIndex = 7;
-            this.btnStart.Text = "btnStart";
+            this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
@@ -143,18 +147,41 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(251, 19);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(366, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(21, 24);
             this.label1.TabIndex = 8;
             this.label1.Text = "€";
+            // 
+            // lblBet
+            // 
+            this.lblBet.AutoSize = true;
+            this.lblBet.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBet.ForeColor = System.Drawing.Color.Black;
+            this.lblBet.Location = new System.Drawing.Point(278, 19);
+            this.lblBet.Name = "lblBet";
+            this.lblBet.Size = new System.Drawing.Size(46, 24);
+            this.lblBet.TabIndex = 9;
+            this.lblBet.Text = "Bet:";
+            // 
+            // lblAccount
+            // 
+            this.lblAccount.AutoSize = true;
+            this.lblAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblAccount.Location = new System.Drawing.Point(15, 19);
+            this.lblAccount.Name = "lblAccount";
+            this.lblAccount.Size = new System.Drawing.Size(93, 24);
+            this.lblAccount.TabIndex = 10;
+            this.lblAccount.Text = "Account:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(931, 507);
+            this.Controls.Add(this.lblAccount);
+            this.Controls.Add(this.lblBet);
             this.Controls.Add(this.lblDealerScore);
             this.Controls.Add(this.lblPlayerScore);
             this.Controls.Add(this.label1);
@@ -186,6 +213,8 @@
         private System.Windows.Forms.TextBox txtBet;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblBet;
+        private System.Windows.Forms.Label lblAccount;
     }
 }
 

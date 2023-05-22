@@ -218,6 +218,7 @@ namespace BakowskiU224N1315_Blackjack
             btnStart.Enabled = true;
             txtBet.Enabled = true;
             btnStick.Enabled = false;
+            btnTwist.Enabled = false;
         }
 
         private void btnStick_Click(object sender, EventArgs e)
