@@ -32,6 +32,7 @@
             this.fraDealerHand = new System.Windows.Forms.GroupBox();
             this.btnTwist = new System.Windows.Forms.Button();
             this.btnStick = new System.Windows.Forms.Button();
+            this.lblPlayerScore = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // fraPlayerHand
@@ -54,27 +55,38 @@
             // 
             // btnTwist
             // 
-            this.btnTwist.Location = new System.Drawing.Point(12, 38);
+            this.btnTwist.Location = new System.Drawing.Point(12, 23);
             this.btnTwist.Name = "btnTwist";
             this.btnTwist.Size = new System.Drawing.Size(75, 23);
             this.btnTwist.TabIndex = 2;
             this.btnTwist.Text = "btnTwist";
             this.btnTwist.UseVisualStyleBackColor = true;
+            this.btnTwist.Click += new System.EventHandler(this.btnTwist_Click);
             // 
             // btnStick
             // 
-            this.btnStick.Location = new System.Drawing.Point(93, 38);
+            this.btnStick.Location = new System.Drawing.Point(12, 52);
             this.btnStick.Name = "btnStick";
             this.btnStick.Size = new System.Drawing.Size(75, 23);
             this.btnStick.TabIndex = 3;
             this.btnStick.Text = "btnStick";
             this.btnStick.UseVisualStyleBackColor = true;
             // 
+            // lblPlayerScore
+            // 
+            this.lblPlayerScore.AutoSize = true;
+            this.lblPlayerScore.Location = new System.Drawing.Point(125, 43);
+            this.lblPlayerScore.Name = "lblPlayerScore";
+            this.lblPlayerScore.Size = new System.Drawing.Size(74, 13);
+            this.lblPlayerScore.TabIndex = 4;
+            this.lblPlayerScore.Text = "lblPlayerScore";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(931, 507);
+            this.Controls.Add(this.lblPlayerScore);
             this.Controls.Add(this.btnStick);
             this.Controls.Add(this.btnTwist);
             this.Controls.Add(this.fraDealerHand);
@@ -83,6 +95,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -92,6 +105,7 @@
         private System.Windows.Forms.GroupBox fraDealerHand;
         private System.Windows.Forms.Button btnTwist;
         private System.Windows.Forms.Button btnStick;
+        private System.Windows.Forms.Label lblPlayerScore;
     }
 }
 

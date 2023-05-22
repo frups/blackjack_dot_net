@@ -24,6 +24,8 @@ namespace BakowskiU224N1315_Blackjack
         int[] dealerDeck = new int[21];//arrays for storing values with cards id of drawed cards
         int playerCardsCounter = 0;
         int dealerCardsCounter = 0;
+        int playerResult = 0;
+        int dealerResult = 0;
         public Form1()
         {
             InitializeComponent();
@@ -42,7 +44,6 @@ namespace BakowskiU224N1315_Blackjack
                 var playerCard = new PictureBox();
                 //playerCard.Image = global::BakowskiU224N1315_Blackjack.Properties.Resources._2c;
                 playerCard.Size = new System.Drawing.Size(73, 93);
-                playerCard.Location = new System.Drawing.Point((index + 1) / 6 * 82, index % 6 * 22);
                 playerCard.Location = new System.Drawing.Point(6 + index % 6 * playerCard.Size.Width, 16 + index / 6 * playerCard.Size.Height);
                 playerCard.Name = "picPlayerCard" + index.ToString();
                 this.fraPlayerHand.Controls.Add(playerCard);
@@ -50,7 +51,6 @@ namespace BakowskiU224N1315_Blackjack
                 var dealerCard = new PictureBox();
                 //dealerCard.Image = global::BakowskiU224N1315_Blackjack.Properties.Resources._2c;
                 dealerCard.Size = new System.Drawing.Size(73, 93);
-                dealerCard.Location = new System.Drawing.Point((index + 1) / 6 * 82, index % 6 * 22);
                 dealerCard.Location = new System.Drawing.Point(6 + index % 6 * dealerCard.Size.Width, 16 + index / 6 * dealerCard.Size.Height);
                 dealerCard.Name = "picDealerCard" + index.ToString();
                 this.fraPlayerHand.Controls.Add(playerCard);
@@ -74,10 +74,11 @@ namespace BakowskiU224N1315_Blackjack
             if (playerCardsCounter < CARDS_IN_HAND_MAX)
             {
                 playerDeck[playerCardsCounter] = drawCardId();//saving card id to deck
-                int index = fraPlayerHand.Controls.GetChildIndex(fraPlayerHand.Controls.Find(("picPlayerCard") + playerCardsCounter.ToString(), true).First());
-                fraPlayerHand.Controls[index].BackgroundImage = getResourceBasedOnCardId(playerDeck[playerCardsCounter]);
+                //int index = fraPlayerHand.Controls.GetChildIndex(fraPlayerHand.Controls.Find(("picPlayerCard") + playerCardsCounter.ToString(), true).First());
+                fraPlayerHand.Controls[playerCardsCounter].BackgroundImage = getResourceBasedOnCardId(playerDeck[playerCardsCounter]);
                 playerCardsCounter++;
             }
+            updatePlayerResult();
         }
 
         private void twistCardForDealer()
@@ -89,6 +90,7 @@ namespace BakowskiU224N1315_Blackjack
                 fraDealerHand.Controls[index].BackgroundImage = getResourceBasedOnCardId(dealerDeck[dealerCardsCounter]);
                 dealerCardsCounter++;
             }
+            updateDealerResult();
         }
 
 
@@ -100,9 +102,50 @@ namespace BakowskiU224N1315_Blackjack
             int i = 0;
             foreach (DictionaryEntry entry in resourceSet)
             {
-                if (i++ == cardId) return (Bitmap)entry.Value;
+                if (i++ == 52-cardId) return (Bitmap)entry.Value;
             }
             return null;
+        }
+
+        private void updatePlayerResult()
+        {
+            int newResult = 0;
+            foreach (int card in playerDeck)
+            {
+                newResult+=getCardValueById(card);
+            }
+            playerResult = newResult;
+            lblPlayerScore.Text = playerResult.ToString();
+        }
+        private void updateDealerResult()
+        {
+            int newResult = 0;
+            foreach (int card in dealerDeck)
+            {
+                newResult += getCardValueById(card);
+            }
+            dealerResult = newResult;
+        }
+
+        private int getCardValueById(int cardId)
+        {
+            if (cardId > 0 && cardId <= 3) return 2;
+            if (cardId >= 4 && cardId <= 7) return 3;
+            if (cardId >= 8 && cardId <= 11) return 4;
+            if (cardId >= 12 && cardId <= 15) return 5;
+            if (cardId >= 16 && cardId <= 19) return 6;
+            if (cardId >= 20 && cardId <= 23) return 7;
+            if (cardId >= 24 && cardId <= 27) return 8;
+            if (cardId >= 28 && cardId <= 31) return 9;
+            if (cardId >= 32 && cardId <= 34) return 1;
+            if (cardId == 35) return -1;//Joker
+            if (cardId >= 36) return 10;
+            else return 0;//Value not found
+        }
+        private void btnTwist_Click(object sender, EventArgs e)
+        {
+            twistCardForPlayer();
+            if (playerResult > 21) MessageBox.Show("player loosed");
         }
 
     }
