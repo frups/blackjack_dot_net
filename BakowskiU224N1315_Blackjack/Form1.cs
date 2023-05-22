@@ -20,8 +20,8 @@ namespace BakowskiU224N1315_Blackjack
     {
         Random rnd = new Random();
         const int CARDS_IN_HAND_MAX = 21;
-        int[] playerDeck = new int[21];//arrays for storing values with cards id of drawed cards
-        int[] dealerDeck = new int[21];//arrays for storing values with cards id of drawed cards
+        int[] playerDeck = new int[CARDS_IN_HAND_MAX];//arrays for storing values with cards id of drawed cards
+        int[] dealerDeck = new int[CARDS_IN_HAND_MAX];//arrays for storing values with cards id of drawed cards
         int playerCardsCounter = 0;
         int dealerCardsCounter = 0;
         int playerResult = 0;
@@ -131,17 +131,18 @@ namespace BakowskiU224N1315_Blackjack
 
         private int getCardValueById(int cardId)
         {
-            if (cardId > 0 && cardId <= 3) return 2;
-            if (cardId >= 4 && cardId <= 7) return 3;
-            if (cardId >= 8 && cardId <= 11) return 4;
-            if (cardId >= 12 && cardId <= 15) return 5;
-            if (cardId >= 16 && cardId <= 19) return 6;
-            if (cardId >= 20 && cardId <= 23) return 7;
-            if (cardId >= 24 && cardId <= 27) return 8;
-            if (cardId >= 28 && cardId <= 31) return 9;
-            if (cardId >= 32 && cardId <= 34) return 1;
-            if (cardId == 35) return -1;//Joker
-            if (cardId >= 36) return 10;
+            if (cardId == 0) return 1;//ace
+            if (cardId >= 1 && cardId <= 4) return 6;
+            if (cardId >= 5 && cardId <= 8) return 7;
+            if (cardId >= 9 && cardId <= 12) return 4;
+            if (cardId >= 13 && cardId <= 16) return 5;
+            if (cardId >= 17 && cardId <= 20) return 2;
+            if (cardId >= 21 && cardId <= 24) return 3;
+            if (cardId >= 25 && cardId <= 28) return 8;
+            if (cardId >= 29 && cardId <= 32) return 9;
+            if (cardId >= 33 && cardId <= 49) return 10;
+            if (cardId >= 50 && cardId <= 53) return 1;//ace
+            if (cardId == 53) return 0;//Joker
             else return 0;//Value not found
         }
 
@@ -155,30 +156,28 @@ namespace BakowskiU224N1315_Blackjack
                 {
                     MessageBox.Show("Dealer bust. Player won the hand");
                     resetGame();
+                    break;
                 }
-                else
-                {
-                    if(dealerResult>playerResult)
-                    {
-                        MessageBox.Show("Player loose");
-                        resetGame();
-                    }
-                    else if(playerResult>dealerResult)
-                    {
-                        MessageBox.Show("Player won");
-                        resetGame();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Draw");
-                        resetGame();
-                    }
-                }
+            }
+
+            if (dealerResult > playerResult)
+            {
+                MessageBox.Show("Player loose");
+                resetGame();
+            }
+            else if (playerResult > dealerResult)
+            {
+                MessageBox.Show("Player won");
+                resetGame();
+            }
+            else
+            {
+                MessageBox.Show("Draw");
+                resetGame();
             }
         }
         private void btnTwist_Click(object sender, EventArgs e)
         {
-            btnTwist.Enabled = false;
             twistCardForPlayer();
             if (playerResult > 21)
             {
@@ -190,8 +189,13 @@ namespace BakowskiU224N1315_Blackjack
         private void resetGame()
         {
             btnTwist.Enabled = true;
-            playerDeck = new int[21];//arrays for storing values with cards id of drawed cards
-            dealerDeck = new int[21];//arrays for storing values with cards id of drawed cards
+            playerDeck = new int[CARDS_IN_HAND_MAX];//arrays for storing values with cards id of drawed cards
+            dealerDeck = new int[CARDS_IN_HAND_MAX];//arrays for storing values with cards id of drawed cards
+            for(int i = 0;i< CARDS_IN_HAND_MAX;i++)
+            {
+                playerDeck[i] = -1;
+                dealerDeck[i] = -1;
+            }
             playerCardsCounter = 0;
             dealerCardsCounter = 0;
             playerResult = 0;
@@ -202,6 +206,7 @@ namespace BakowskiU224N1315_Blackjack
 
         private void btnStick_Click(object sender, EventArgs e)
         {
+            btnTwist.Enabled = false;
             dealerTurn();
 
         }
